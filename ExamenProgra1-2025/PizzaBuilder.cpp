@@ -10,10 +10,10 @@ void PizzaBuilder::BuildPizza() {
 
     SelectTomatoes();
     SelectCheese();
+    SelectMeat();
 
     // TODO
     //SelectHerbs();
-    //SelectMeats();
 }
 
 void PizzaBuilder::DisplayFinalPizza() const {
@@ -65,11 +65,25 @@ void PizzaBuilder::SelectCheese() {
     }
 }
 
+void PizzaBuilder::SelectMeat() {
+    std::cout << "\n--- Selecting Meats ---" << std::endl;
+    IngredientSelector<MeatsRepository> selector(meatsRepo_, availableMeats_, "meat");
+
+    while (true) {
+        selector.DisplayAvailableIngredients();
+        std::cout << "\nEnter meat type (or 'done' to finish): ";
+        std::string userChoice;
+        std::getline(std::cin, userChoice);
+
+        if (userChoice == "done" || userChoice == "DONE") {
+            break;
+        }
+
+        selector.AddIngredientToPizza(userChoice, selectedIngredients_);
+    }
+}
+
 // TODO: Crear cada uno su parte.
 //void PizzaBuilder::SelectHerb() {
 //    // Resolver.    
-//}
-//
-//void PizzaBuilder::SelectMeat() {
-//    // Resolver.    
-//}
+//}     
