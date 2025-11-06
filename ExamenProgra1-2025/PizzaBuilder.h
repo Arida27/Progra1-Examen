@@ -1,8 +1,10 @@
+
 #pragma once
 #include <vector>
 #include <string>
 #include "TomatoesRepository.h"
 #include "CheeseRepository.h"
+#include "MeatsRepository.h"
 #include "IngredientSelector.h"
 
 class PizzaBuilder {
@@ -19,9 +21,11 @@ private:
 
     TomatoesRepository tomatoRepo_;
     CheeseRepository cheeseRepo_;
+    MeatsRepository meatsRepo_;
 
     std::vector<std::string> selectedIngredients_;
 
     const std::vector<std::string> availableTomatoes_ = { "Cherry", "Roma", "Beefsteak", "Heirloom", "Grape" };
     const std::vector<std::string> availableCheeses_ = { "Mozzarella", "Cheddar", "Parmesan", "Cream Cheese", "Gouda", "Blue Cheese", "Feta" };
+    const std::vector<std::string> availableMeats_ = { "Pepperoni", "Ham", "Bacon", "Sausage", "Chicken", "Beef" };
 };
