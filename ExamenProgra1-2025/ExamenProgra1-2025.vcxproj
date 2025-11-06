@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheeseRepository.cpp" />
     <ClCompile Include="DataLoader.cpp" />
     <ClCompile Include="IngredientSelector.cpp" />
     <ClCompile Include="main.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="DataLoader.h" />
     <ClInclude Include="IngredientSelector.h" />
     <ClInclude Include="PizzaBuilder.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="TomatoesRepository.h" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ExamenProgra1-2025.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
