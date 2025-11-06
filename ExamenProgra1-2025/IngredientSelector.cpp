@@ -13,7 +13,8 @@ void IngredientSelector<TRepository>::DisplayAvailableIngredients() {
         try {
             int quantity = repository_.GetAvailableQuantity(item);
             std::cout << "- " << item << " (Available: " << quantity << ")" << std::endl;
-        } catch (const std::invalid_argument&) {
+        }
+        catch (const std::invalid_argument&) {
             std::cout << "- " << item << " (Not available)" << std::endl;
         }
     }
@@ -28,16 +29,21 @@ bool IngredientSelector<TRepository>::AddIngredientToPizza(const std::string& in
             repository_.UpdateQuantity(ingredientName, quantity - 1);
             std::cout << "Added " << ingredientName << " to your pizza!" << std::endl;
             return true;
-        } else {
+        }
+        else {
             std::cout << "Sorry, " << ingredientName << " " << ingredientType_ << " can't be added at this time. Please choose another one." << std::endl;
             return false;
         }
-    } catch (const std::invalid_argument&) {
+    }
+    catch (const std::invalid_argument&) {
         std::cout << "Sorry, " << ingredientName << " is not a valid " << ingredientType_ << " type. Please choose from the available options." << std::endl;
         return false;
     }
 }
 
+// Explicit template instantiations
 #include "TomatoesRepository.h"
-
 template class IngredientSelector<TomatoesRepository>;
+
+#include "CheeseRepository.h"
+template class IngredientSelector<CheeseRepository>;
